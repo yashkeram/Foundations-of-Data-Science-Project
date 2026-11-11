@@ -1,4 +1,4 @@
-# Retail Business Performance Analysis
+# ®RETAIL BUSINESS PERFORMANCE ANALYSIS
 
 **Turning transaction data into business insights with Python, data analysis, and the PACE framework.**
 
