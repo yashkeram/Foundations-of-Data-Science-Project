@@ -1,12 +1,13 @@
-# ®RETAIL BUSINESS PERFORMANCE ANALYSIS
+# RETAIL BUSINESS PERFORMANCE ANALYSIS
 
 **Turning transaction data into business insights with Python, data analysis, and the PACE framework.**
 
 [![Python](https://img.shields.io/badge/Python-Analysis-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?style=for-the-badge&logo=jupyter&logoColor=white)](https://jupyter.org/)
-[![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
-[![NumPy](https://img.shields.io/badge/NumPy-Computing-013243?style=for-the-badge&logo=numpy&logoColor=white)](https://numpy.org/)
+[![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458?style=for-the-badge&logo=pandas)](https://pandas.pydata.org/)
+[![NumPy](https://img.shields.io/badge/NumPy-Computing-013243?style=for-the-badge&logo=numpy)](https://numpy.org/)
 [![Matplotlib](https://img.shields.io/badge/Matplotlib-Visualization-11557C?style=for-the-badge)](https://matplotlib.org/)
+
 ![Status](https://img.shields.io/badge/Project-Completed-2EA44F?style=for-the-badge)
 
 ---
@@ -72,35 +73,35 @@ The following charts summarize the main analytical findings.
 
 ### 1. Geographical Performance
 
-![Top 10 countries by recorded merchandise revenue](visualizations/01_top_countries.png)
+![Top 10 countries by recorded merchandise revenue](Visualizations/01_top_countries.png)
 
 The United Kingdom represents the largest share of recorded merchandise revenue. International contributions provide additional context for understanding the retailer's geographical distribution.
 
 ### 2. Monthly Sales Performance
 
-![Monthly recorded merchandise revenue](visualizations/02_monthly_revenue.png)
+![Monthly recorded merchandise revenue](Visualizations/02_monthly_revenue.png)
 
-![Monthly invoice activity](visualizations/06_monthly_invoice_activity.png)
+![Monthly invoice activity](Visualizations/06_monthly_invoice_activity.png)
 
-![Monthly units sold](visualizations/09_monthly_units_sold.png)
+![Monthly units sold](Visualizations/09_monthly_units_sold.png)
 
 November 2011 recorded the highest monthly merchandise revenue in the analysis period. December 2011 is incomplete, so it should not be compared directly with full months.
 
 ### 3. Product Performance
 
-![Top products by recorded merchandise revenue](visualizations/03_top_products.png)
+![Top products by recorded merchandise revenue](Visualizations/03_top_products.png)
 
-![Product revenue concentration](visualizations/05_product_revenue_concentration.png)
+![Product revenue concentration](Visualizations/05_product_revenue_concentration.png)
 
 Product concentration analysis helps identify how much recorded revenue is associated with a relatively small portion of the product catalogue.
 
 ### 4. Customer Analysis
 
-![Customer revenue concentration](visualizations/04_customer_revenue_concentration.png)
+![Customer revenue concentration](Visualizations/04_customer_revenue_concentration.png)
 
-![Customer active months](visualizations/07_customer_active_months.png)
+![Customer active months](Visualizations/07_customer_active_months.png)
 
-![Top identifiable customers](visualizations/08_top_customers.png)
+![Top identifiable customers](Visualizations/08_top_customers.png)
 
 Customer analysis examines revenue concentration and purchasing activity across calendar months. Multi-month activity is an observed purchasing pattern, not a formal customer-retention measure.
 
@@ -157,21 +158,21 @@ These are recommendations for further investigation, not proven causal outcomes.
 ```text
 Foundations-of-Data-Science-Project/
 │
-├── data/
+├── Data/
 │   ├── raw/
 │   └── processed/
 │
-├── docs/
+├── Docs/
 │   └── 01_initial_data_observations.md
 │
-├── notebooks/
+├── Notebooks/
 │   └── 01_initial_data_understanding.ipynb
 │
-├── reports/
+├── Reports/
 │   ├── business_findings.csv
 │   └── final_business_analysis.md
 │
-├── visualizations/
+├── Visualizations/
 │   ├── 01_top_countries.png
 │   ├── 02_monthly_revenue.png
 │   ├── 03_top_products.png
@@ -223,7 +224,7 @@ pip install -r requirements.txt
 Download `Online Retail.xlsx` from the [UCI dataset page](https://archive.ics.uci.edu/dataset/352/online+retail) and place it inside:
 
 ```text
-data/raw/
+Data/raw/
 ```
 
 **5. Run the notebook**
@@ -232,7 +233,7 @@ data/raw/
 jupyter notebook
 ```
 
-Open `notebooks/01_initial_data_understanding.ipynb` and execute the cells in order.
+Open `Notebooks/01_initial_data_understanding.ipynb` and execute the cells in order.
 
 The raw Excel file and generated processed dataset are excluded from version control. They must be generated or downloaded locally before reproducing the analysis.
 
@@ -254,11 +255,11 @@ All findings should therefore be interpreted as historical transaction analysis 
 
 | Deliverable | Location |
 |---|---|
-| Exploratory analysis | `notebooks/` |
-| Initial data observations | `docs/` |
-| Consolidated findings | `reports/business_findings.csv` |
-| Complete business report | `reports/final_business_analysis.md` |
-| Visualizations | `visualizations/` |
+| Exploratory analysis | `Notebooks/` |
+| Initial data observations | `Docs/` |
+| Consolidated findings | `Reports/business_findings.csv` |
+| Complete business report | `Reports/final_business_analysis.md` |
+| Visualizations | `Visualizations/` |
 | Data definitions | `DATA_DICTIONARY.md` |
 | Project planning | `PROJECT_PLAN.md` |
 
