@@ -1,127 +1,100 @@
 # Retail Business Performance Analysis
 
-**An independent Foundations of Data Science project using the PACE framework**
+**Turning transaction data into business insights with Python, data analysis, and the PACE framework.**
 
-## Business question
+[![Python](https://img.shields.io/badge/Python-Analysis-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?style=for-the-badge&logo=jupyter&logoColor=white)](https://jupyter.org/)
+[![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
+[![NumPy](https://img.shields.io/badge/NumPy-Computing-013243?style=for-the-badge&logo=numpy&logoColor=white)](https://numpy.org/)
+[![Matplotlib](https://img.shields.io/badge/Matplotlib-Visualization-11557C?style=for-the-badge)](https://matplotlib.org/)
+![Status](https://img.shields.io/badge/Project-Completed-2EA44F?style=for-the-badge)
 
-Which products, customers, and sales periods contribute most to revenue in a historical online retail business, and what evidence-based actions could management consider to improve sales performance?
+---
 
-## Project overview
+## Project Overview
 
-This project uses the UCI Online Retail dataset, a real transaction-level dataset from a UK-based online retailer. The original data covers transactions from **1 December 2010 to 9 December 2011** and contains **541,909 records**.
+How can a business use historical transaction data to understand its products, customers, and sales performance?
 
-The project follows the PACE framework:
+This project investigates that question using the **UCI Online Retail dataset**, containing 541,909 transaction records from a UK-based online retailer between December 2010 and December 2011.
 
-1. **Plan** — define the business problem, stakeholders, objectives, and analytical questions.
-2. **Analyze** — inspect the dataset, assess data quality, and identify patterns worth investigating.
-3. **Construct** — prepare analysis-ready data, calculate business metrics, and create visual evidence.
-4. **Execute** — communicate findings, limitations, and practical recommendations.
+Using Python and the PACE framework, I conducted data exploration, data-quality assessment, transaction analysis, customer and product analysis, and visualization to identify patterns that could support better business decisions.
 
-## Initial analytical questions
+**The central objective:** transform raw transactional information into clear, evidence-based business insights while documenting the limitations of the data.
 
-- Which products contribute the most to recorded revenue?
-- Which countries account for the largest share of recorded revenue?
-- How does recorded revenue change month by month?
-- How common are cancellations, returns, and unusual transaction values?
-- What limitations should management consider before acting on the results?
+## Business Problem
 
-## Dataset
+Management needs to understand:
 
-- **Source:** UCI Machine Learning Repository — Online Retail
-- **Creator:** Daqing Chen
-- **DOI:** https://doi.org/10.24432/C5BW33
-- **Dataset page:** https://archive.ics.uci.edu/dataset/352/online+retail
-- **License:** CC BY 4.0
+- Which products contribute most to recorded merchandise revenue?
+- How concentrated is revenue across products and customers?
+- Which countries contribute most to recorded transaction value?
+- How does sales activity change over time?
+- What data-quality issues could affect business decisions?
 
-Download `Online Retail.xlsx` from the UCI page and place it in `data/raw/`.
+The analysis examines these questions and develops practical recommendations based on the available evidence.
 
-The dataset includes invoice number, product code, product description, quantity, invoice date, unit price, customer ID, and country. Invoice numbers beginning with `C` indicate cancellations. Negative quantities may represent returns. Missing customer IDs and other data-quality issues must be investigated rather than silently ignored.
+## Key Findings
 
-## Important measurement note
+<details>
+<summary><strong>View analytical highlights</strong></summary>
 
-We will calculate **recorded line revenue** as `Quantity × UnitPrice`. This is not the same as profit: the dataset does not provide product costs, operating expenses, or full margin information. Any recommendations will respect that limitation.
+| Metric | Finding |
+|---|---:|
+| Recorded merchandise revenue | £10,047,508.36 |
+| Products analysed | 3,916 stock codes |
+| Identifiable customers | 4,334 |
+| Countries represented | 38 |
+| UK revenue contribution | 84.78% |
+| International revenue contribution | 15.22% |
+| Top 10 products' revenue share | 8.17% |
+| Top 20 customers' revenue share | 22.78% |
+| Customers active across multiple months | 62.21% |
+| Highest recorded revenue month | November 2011 |
 
-## Repository structure
+*These figures use the documented sensitivity-analysis dataset. Customer concentration and multi-month activity calculations use identifiable CustomerID records.*
 
-```text
-Foundations-of-Data-Science-Project/
-├── data/
-│   ├── raw/                 # Original dataset; do not commit large raw files
-│   └── processed/           # Cleaned/derived data (review before committing)
-├── notebooks/
-│   └── 01_initial_data_understanding.ipynb
-├── reports/                 # Written findings and project report
-├── visualizations/          # Exported charts
-├── .gitignore
-├── PROJECT_PLAN.md
-├── DATA_DICTIONARY.md
-└── requirements.txt
-```
+</details>
 
-## Reproducibility
+## Analytical Framework — PACE
 
-Use Python 3.10+ and install the dependencies:
+The project follows the four stages of the PACE framework.
 
-```bash
-pip install -r requirements.txt
-```
+| Stage | What I did |
+|---|---|
+| **Plan** | Defined the business problem, objectives, and analytical questions. |
+| **Analyze** | Explored transaction records, investigated missing values, duplicates, cancellations, and unusual entries. |
+| **Construct** | Prepared analysis-ready data, calculated metrics, and developed visualizations. |
+| **Execute** | Interpreted findings, documented limitations, and developed evidence-based recommendations. |
 
-Open the notebook and run the cells in order.
+## Visual Analysis
 
-## Current status
+The following charts summarize the main analytical findings.
 
-- [x] Business problem selected
-- [x] Dataset source selected
-- [x] Initial project structure created
-- [ ] Download dataset
-- [ ] Complete initial data inspection
-- [ ] Document data-quality findings
-- [ ] Continue through PACE stages
+### 1. Geographical Performance
 
+![Top 10 countries by recorded merchandise revenue](visualizations/01_top_countries.png)
 
-## Key findings
+The United Kingdom represents the largest share of recorded merchandise revenue. International contributions provide additional context for understanding the retailer's geographical distribution.
 
-The analysis produced the following findings using the
-sensitivity-analysis dataset:
+### 2. Monthly Sales Performance
 
-- **Recorded merchandise revenue:** £10,047,508.36.
-- **Products analysed:** 3,916 stock codes.
-- **Identifiable customers:** 4,334.
-- **Countries represented:** 38.
-- **United Kingdom revenue contribution:** 84.78%.
-- **International revenue contribution:** 15.22%.
-- **Top 10 products:** 8.17% of recorded merchandise revenue.
-- **Top 20 identifiable customers:** 22.78% of identifiable-customer revenue.
-- **Multi-month purchasing activity:** 62.21% of identifiable customers.
-- **Highest recorded revenue month:** November 2011.
-
-These results describe historical recorded transaction
-values. They should not be interpreted as profit or
-verified net sales.
-
-## Visualizations
-
-The project includes nine exported visualizations:
-
-### Geographical performance
-
-![Top 10 countries](visualizations/01_top_countries.png)
-
-### Monthly sales performance
-
-![Monthly revenue](visualizations/02_monthly_revenue.png)
+![Monthly recorded merchandise revenue](visualizations/02_monthly_revenue.png)
 
 ![Monthly invoice activity](visualizations/06_monthly_invoice_activity.png)
 
 ![Monthly units sold](visualizations/09_monthly_units_sold.png)
 
-### Product performance
+November 2011 recorded the highest monthly merchandise revenue in the analysis period. December 2011 is incomplete, so it should not be compared directly with full months.
 
-![Top products](visualizations/03_top_products.png)
+### 3. Product Performance
+
+![Top products by recorded merchandise revenue](visualizations/03_top_products.png)
 
 ![Product revenue concentration](visualizations/05_product_revenue_concentration.png)
 
-### Customer analysis
+Product concentration analysis helps identify how much recorded revenue is associated with a relatively small portion of the product catalogue.
+
+### 4. Customer Analysis
 
 ![Customer revenue concentration](visualizations/04_customer_revenue_concentration.png)
 
@@ -129,32 +102,174 @@ The project includes nine exported visualizations:
 
 ![Top identifiable customers](visualizations/08_top_customers.png)
 
-## Final report and project outputs
+Customer analysis examines revenue concentration and purchasing activity across calendar months. Multi-month activity is an observed purchasing pattern, not a formal customer-retention measure.
 
-The repository contains:
+## Data and Methodology
 
-- `reports/final_business_analysis.md` — complete business analysis report.
-- `reports/business_findings.csv` — consolidated analytical findings.
-- `data/processed/merchandise_cleaned.csv` — prepared merchandise dataset generated locally by the notebook; excluded from GitHub because of its file size.
-- `visualizations/` — exported analytical charts.
-- `notebooks/01_initial_data_understanding.ipynb` — exploratory analysis and data preparation.
+**Dataset:** UCI Machine Learning Repository — Online Retail
 
-## Analytical limitations
+- Creator: Daqing Chen
+- Original records: 541,909
+- Original period: 1 December 2010 – 9 December 2011
+- Original variables: 8
+- Dataset DOI: [10.24432/C5BW33](https://doi.org/10.24432/C5BW33)
+- Dataset source: [UCI Online Retail](https://archive.ics.uci.edu/dataset/352/online+retail)
 
-The findings have several important limitations:
+### Data Preparation
 
-- The dataset represents historical transactions from 2010–2011.
+The analysis investigated:
+
+- Missing customer identifiers and product descriptions.
+- Duplicate transaction records.
+- Cancellation invoices and negative quantities.
+- Zero and non-positive unit prices.
+- Special transaction codes and non-merchandise entries.
+- Ambiguous cancellation matching.
+
+The merchandise analysis retained qualifying positive-quantity, positive-price transaction lines and excluded identified special transaction codes and cancellation invoices.
+
+A separate sensitivity analysis excluded two original invoice records for which full cancellation was independently verified.
+
+### Important Measurement Definition
+
+Recorded line revenue is calculated as:
+
+`Quantity × UnitPrice`
+
+**Recorded revenue is not profit.** The dataset does not include product costs, operating expenses, or complete margin information.
+
+The sensitivity-analysis result is also not verified net sales: broader cancellation matching remained ambiguous, and the analysis does not establish a complete accounting reconciliation.
+
+## Business Recommendations
+
+Based on the observed patterns, management could consider:
+
+1. **Product portfolio review:** examine high-contribution products and investigate products with consistently low recorded revenue.
+2. **Inventory planning:** use monthly product and sales patterns as an input to inventory planning, while validating against more recent data.
+3. **Customer analysis:** investigate purchasing patterns among identifiable customers and improve customer identification coverage.
+4. **Geographical analysis:** evaluate international markets using additional information about costs, demand, logistics, and profitability.
+5. **Data-quality controls:** improve the recording of cancellations, returns, customer identifiers, and unusual transaction entries.
+
+These are recommendations for further investigation, not proven causal outcomes.
+
+## Repository Structure
+
+```text
+Foundations-of-Data-Science-Project/
+│
+├── data/
+│   ├── raw/
+│   └── processed/
+│
+├── docs/
+│   └── 01_initial_data_observations.md
+│
+├── notebooks/
+│   └── 01_initial_data_understanding.ipynb
+│
+├── reports/
+│   ├── business_findings.csv
+│   └── final_business_analysis.md
+│
+├── visualizations/
+│   ├── 01_top_countries.png
+│   ├── 02_monthly_revenue.png
+│   ├── 03_top_products.png
+│   ├── 04_customer_revenue_concentration.png
+│   ├── 05_product_revenue_concentration.png
+│   ├── 06_monthly_invoice_activity.png
+│   ├── 07_customer_active_months.png
+│   ├── 08_top_customers.png
+│   └── 09_monthly_units_sold.png
+│
+├── DATA_DICTIONARY.md
+├── PROJECT_PLAN.md
+├── README.md
+├── requirements.txt
+└── .gitignore
+```
+
+## Reproducibility
+
+To reproduce the analysis:
+
+**1. Clone the repository**
+
+```bash
+git clone https://github.com/yashkeram/Foundations-of-Data-Science-Project.git
+cd Foundations-of-Data-Science-Project
+```
+
+**2. Create and activate a virtual environment**
+
+```bash
+python -m venv .venv
+```
+
+Windows PowerShell:
+
+```powershell
+.venv\Scripts\Activate.ps1
+```
+
+**3. Install dependencies**
+
+```bash
+pip install -r requirements.txt
+```
+
+**4. Download the dataset**
+
+Download `Online Retail.xlsx` from the [UCI dataset page](https://archive.ics.uci.edu/dataset/352/online+retail) and place it inside:
+
+```text
+data/raw/
+```
+
+**5. Run the notebook**
+
+```bash
+jupyter notebook
+```
+
+Open `notebooks/01_initial_data_understanding.ipynb` and execute the cells in order.
+
+The raw Excel file and generated processed dataset are excluded from version control. They must be generated or downloaded locally before reproducing the analysis.
+
+## Limitations and Research Considerations
+
+This project has several important limitations:
+
+- The dataset covers historical transactions from 2010–2011, not current retail conditions.
 - Approximately 24.9% of merchandise records have missing CustomerIDs.
-- Two fully cancelled transactions were independently verified and excluded in a sensitivity scenario. Broader cancellation matching remained ambiguous.
-- Exact duplicate records were retained in the primary analysis because identical rows do not necessarily establish accidental duplication.
-- Product costs, operating expenses, and profit margins are unavailable.
+- Cancellation matching is incomplete and contains ambiguous cases.
+- Exact duplicate records were retained in the primary analysis because identical records do not automatically prove accidental duplication.
 - December 2011 is an incomplete observation period.
+- Product costs, operating expenses, and profit margins are unavailable.
+- Customer purchasing across multiple months does not establish formal retention or customer loyalty.
 
-Accordingly, recorded merchandise revenue is not equivalent
-to profit or definitive net sales. Customer and product
-findings should be interpreted within the documented
-data-quality limitations.
+All findings should therefore be interpreted as historical transaction analysis rather than a complete assessment of business profitability.
 
-## Attribution
+## Project Deliverables
 
-Chen, D. (2015). *Online Retail* [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5BW33
+| Deliverable | Location |
+|---|---|
+| Exploratory analysis | `notebooks/` |
+| Initial data observations | `docs/` |
+| Consolidated findings | `reports/business_findings.csv` |
+| Complete business report | `reports/final_business_analysis.md` |
+| Visualizations | `visualizations/` |
+| Data definitions | `DATA_DICTIONARY.md` |
+| Project planning | `PROJECT_PLAN.md` |
+
+## Dataset Attribution
+
+Chen, D. (2015). *Online Retail* [Dataset]. UCI Machine Learning Repository.
+
+[Dataset DOI](https://doi.org/10.24432/C5BW33) · [Dataset page](https://archive.ics.uci.edu/dataset/352/online+retail)
+
+The dataset is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+
+---
+
+**An independent data-analysis project focused on learning how data can support business understanding and decision-making.**
